@@ -36,5 +36,10 @@ namespace WebApi.Controllers
                 return null;
             }
         }
+
+        public FoodModel Get(int id)
+        {
+            return modelFactory.Create(reposotiry.GetFood(id));
+        }
     }
 }
