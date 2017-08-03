@@ -71,3 +71,10 @@ D:\github\Repos\web-api\WebApi\bin\Microsoft.AI.Web.xml
 D:\github\Repos\web-api\WebApi\obj\Debug\WebApi.csprojResolveAssemblyReference.cache
 D:\github\Repos\web-api\WebApi\obj\Debug\WebApi.dll
 D:\github\Repos\web-api\WebApi\obj\Debug\WebApi.pdb
+D:\github\Repos\web-api\WebApi\bin\EntityFramework.dll
+D:\github\Repos\web-api\WebApi\bin\EntityFramework.SqlServer.dll
+D:\github\Repos\web-api\WebApi\bin\NewApi.Data.dll
+D:\github\Repos\web-api\WebApi\bin\NewApi.Data.pdb
+D:\github\Repos\web-api\WebApi\bin\NewApi.Data.dll.config
+D:\github\Repos\web-api\WebApi\bin\EntityFramework.xml
+D:\github\Repos\web-api\WebApi\bin\EntityFramework.SqlServer.xml

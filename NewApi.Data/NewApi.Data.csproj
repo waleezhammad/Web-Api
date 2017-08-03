@@ -57,6 +57,7 @@
     <Compile Include="AuthToken.cs">
       <DependentUpon>Nutritions.tt</DependentUpon>
     </Compile>
+    <Compile Include="CountingKsRepository.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Nutritions.tt</DependentUpon>
     </Compile>
@@ -69,6 +70,7 @@
     <Compile Include="Food.cs">
       <DependentUpon>Nutritions.tt</DependentUpon>
     </Compile>
+    <Compile Include="ICountingKsRepository.cs" />
     <Compile Include="Measure.cs">
       <DependentUpon>Nutritions.tt</DependentUpon>
     </Compile>

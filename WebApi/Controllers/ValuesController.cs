@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewApi.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,9 +11,12 @@ namespace WebApi.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<object> Get()
         {
-            return new string[] { "value1", "value2" };
+            using (CountingKsEntities context = new CountingKsEntities())
+            {
+                return new List<object>() { context.Diaries.Select(c=>new {ID= c.Id,userName = c.UserName}).FirstOrDefault() };
+            }
         }
 
         // GET api/values/5
