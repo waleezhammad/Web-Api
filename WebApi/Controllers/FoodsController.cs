@@ -6,28 +6,32 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebApi.Models;
 
 namespace WebApi.Controllers
 {
     public class FoodsController : ApiController
     {
         CountingKsRepository reposotiry;
+        ModelFactory modelFactory;
         public FoodsController(CountingKsRepository reposotiry)
         {
             this.reposotiry = reposotiry;
+            modelFactory = new ModelFactory();
         }
-        public IEnumerable<Food> Get()
+        public IEnumerable<FoodModel> Get()
         {
             try
             {
 
-                return reposotiry.GetAllFoods()
+                return reposotiry.GetAllFoodsWithMeasures()
                     .OrderBy(c => c.Id)
-                    .Take(25)
-                    .ToList();
+                    .Take(25).ToList()
+                    .Select(f => modelFactory.Create(f))
+                    ;
 
             }
-            catch
+            catch(Exception ex)
             {
                 return null;
             }
