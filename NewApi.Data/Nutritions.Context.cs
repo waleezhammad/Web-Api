@@ -18,6 +18,7 @@ namespace NewApi.Data
         public CountingKsEntities()
             : base("name=CountingKsEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

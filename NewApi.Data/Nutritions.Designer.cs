@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\Nutritions.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\github\Repos\web-api\NewApi.Data\Nutritions.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

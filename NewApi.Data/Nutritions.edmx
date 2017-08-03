@@ -307,7 +307,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CountingKsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CountingKsEntities" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="Diaries" EntityType="Self.Diary" />
           <EntitySet Name="DiaryEntries" EntityType="Self.DiaryEntry" />

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CountingKs.Data
 {
-  public class CountingKsRepository : ICountingKsRepository
+  public class CountingKsRepository : ICountingKsRepository,IDisposable
   {
     private CountingKsEntities _ctx;
     public CountingKsRepository(CountingKsEntities ctx)
@@ -197,19 +197,24 @@ namespace CountingKs.Data
       return false;
     }
 
-    // Helper to update objects in context
-    //bool UpdateEntity<T>(DbSet<T> dbSet, T entity) where T : class
-    //{
-    //  try
-    //  {
-    //    dbSet.AttachAsModified(entity, _ctx);
-    //    return true;
-    //  }
-    //  catch
-    //  {
-    //    return false;
-    //  }
-    //}
+        public void Dispose()
+        {
+            
+        }
 
-  }
+        // Helper to update objects in context
+        //bool UpdateEntity<T>(DbSet<T> dbSet, T entity) where T : class
+        //{
+        //  try
+        //  {
+        //    dbSet.AttachAsModified(entity, _ctx);
+        //    return true;
+        //  }
+        //  catch
+        //  {
+        //    return false;
+        //  }
+        //}
+
+    }
 }
