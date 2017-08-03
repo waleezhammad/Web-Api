@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CountingKsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CurrentDate" Type="datetime" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DiaryEntry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="float" Nullable="false" />
+    <Property Name="FoodItem_Id" Type="int" />
+    <Property Name="Measure_Id" Type="int" />
+    <Property Name="Diary_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Measure">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Calories" Type="float" Nullable="false" />
+    <Property Name="TotalFat" Type="float" Nullable="false" />
+    <Property Name="SaturatedFat" Type="float" Nullable="false" />
+    <Property Name="Protein" Type="float" Nullable="false" />
+    <Property Name="Carbohydrates" Type="float" Nullable="false" />
+    <Property Name="Fiber" Type="float" Nullable="false" />
+    <Property Name="Sugar" Type="float" Nullable="false" />
+    <Property Name="Sodium" Type="float" Nullable="false" />
+    <Property Name="Iron" Type="float" Nullable="false" />
+    <Property Name="Cholestrol" Type="float" Nullable="false" />
+    <Property Name="Food_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="ApiUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Secret" Type="nvarchar(max)" />
+    <Property Name="AppId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AuthToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="nvarchar(max)" />
+    <Property Name="Expiration" Type="datetime" Nullable="false" />
+    <Property Name="ApiUser_Id" Type="int" />
+  </EntityType>
+  <Association Name="FK_FoodDiaries_DiaryEntry_FoodDiaries_Diary_Diary_Id">
+    <End Role="Diary" Type="Self.Diary" Multiplicity="0..1" />
+    <End Role="DiaryEntry" Type="Self.DiaryEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diary">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DiaryEntry">
+        <PropertyRef Name="Diary_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FoodDiaries_DiaryEntry_Nutrition_Food_FoodItem_Id">
+    <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+    <End Role="DiaryEntry" Type="Self.DiaryEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DiaryEntry">
+        <PropertyRef Name="FoodItem_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FoodDiaries_DiaryEntry_Nutrition_Measure_Measure_Id">
+    <End Role="Measure" Type="Self.Measure" Multiplicity="0..1" />
+    <End Role="DiaryEntry" Type="Self.DiaryEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Measure">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DiaryEntry">
+        <PropertyRef Name="Measure_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nutrition_Measure_Nutrition_Food_Food_Id">
+    <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+    <End Role="Measure" Type="Self.Measure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Measure">
+        <PropertyRef Name="Food_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Security_AuthToken_Security_ApiUser_ApiUser_Id">
+    <End Role="ApiUser" Type="Self.ApiUser" Multiplicity="0..1" />
+    <End Role="AuthToken" Type="Self.AuthToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApiUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthToken">
+        <PropertyRef Name="ApiUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CountingKsModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diary" EntityType="Self.Diary" Schema="FoodDiaries" store:Type="Tables" />
+    <EntitySet Name="DiaryEntry" EntityType="Self.DiaryEntry" Schema="FoodDiaries" store:Type="Tables" />
+    <EntitySet Name="Food" EntityType="Self.Food" Schema="Nutrition" store:Type="Tables" />
+    <EntitySet Name="Measure" EntityType="Self.Measure" Schema="Nutrition" store:Type="Tables" />
+    <EntitySet Name="ApiUser" EntityType="Self.ApiUser" Schema="Security" store:Type="Tables" />
+    <EntitySet Name="AuthToken" EntityType="Self.AuthToken" Schema="Security" store:Type="Tables" />
+    <AssociationSet Name="FK_FoodDiaries_DiaryEntry_FoodDiaries_Diary_Diary_Id" Association="Self.FK_FoodDiaries_DiaryEntry_FoodDiaries_Diary_Diary_Id">
+      <End Role="Diary" EntitySet="Diary" />
+      <End Role="DiaryEntry" EntitySet="DiaryEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FoodDiaries_DiaryEntry_Nutrition_Food_FoodItem_Id" Association="Self.FK_FoodDiaries_DiaryEntry_Nutrition_Food_FoodItem_Id">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="DiaryEntry" EntitySet="DiaryEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FoodDiaries_DiaryEntry_Nutrition_Measure_Measure_Id" Association="Self.FK_FoodDiaries_DiaryEntry_Nutrition_Measure_Measure_Id">
+      <End Role="Measure" EntitySet="Measure" />
+      <End Role="DiaryEntry" EntitySet="DiaryEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nutrition_Measure_Nutrition_Food_Food_Id" Association="Self.FK_Nutrition_Measure_Nutrition_Food_Food_Id">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="Measure" EntitySet="Measure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Security_AuthToken_Security_ApiUser_ApiUser_Id" Association="Self.FK_Security_AuthToken_Security_ApiUser_ApiUser_Id">
+      <End Role="ApiUser" EntitySet="ApiUser" />
+      <End Role="AuthToken" EntitySet="AuthToken" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

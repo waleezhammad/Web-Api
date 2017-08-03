@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a63ffddbaa004712a36c2a538eba3e22" Name="Diagram1">
+        <EntityTypeShape EntityType="CountingKsModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CountingKsModel.Diary" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CountingKsModel.DiaryEntry" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CountingKsModel.Food" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CountingKsModel.Measure" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CountingKsModel.ApiUser" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CountingKsModel.AuthToken" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="CountingKsModel.FK_FoodDiaries_DiaryEntry_FoodDiaries_Diary_Diary_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="CountingKsModel.FK_FoodDiaries_DiaryEntry_Nutrition_Food_FoodItem_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="CountingKsModel.FK_FoodDiaries_DiaryEntry_Nutrition_Measure_Measure_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="CountingKsModel.FK_Nutrition_Measure_Nutrition_Food_Food_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="CountingKsModel.FK_Security_AuthToken_Security_ApiUser_ApiUser_Id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

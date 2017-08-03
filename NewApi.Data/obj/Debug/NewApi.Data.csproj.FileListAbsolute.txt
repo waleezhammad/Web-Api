@@ -1,0 +1,20 @@
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\bin\Debug\NewApi.Data.dll.config
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\bin\Debug\NewApi.Data.dll
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\bin\Debug\NewApi.Data.pdb
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\bin\Debug\EntityFramework.dll
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\bin\Debug\EntityFramework.xml
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\obj\Debug\NewApi.Data.csprojResolveAssemblyReference.cache
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\obj\Debug\NewApi.Data.dll
+C:\Users\Waleed\Desktop\Courses\Implementing an API in ASP.NET Web API\Demos\NewApi\NewApi.Data\obj\Debug\NewApi.Data.pdb
+D:\github\Repos\web-api\NewApi.Data\bin\Debug\NewApi.Data.dll.config
+D:\github\Repos\web-api\NewApi.Data\bin\Debug\NewApi.Data.dll
+D:\github\Repos\web-api\NewApi.Data\bin\Debug\NewApi.Data.pdb
+D:\github\Repos\web-api\NewApi.Data\bin\Debug\EntityFramework.dll
+D:\github\Repos\web-api\NewApi.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\github\Repos\web-api\NewApi.Data\bin\Debug\EntityFramework.xml
+D:\github\Repos\web-api\NewApi.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\github\Repos\web-api\NewApi.Data\obj\Debug\NewApi.Data.csprojResolveAssemblyReference.cache
+D:\github\Repos\web-api\NewApi.Data\obj\Debug\NewApi.Data.dll
+D:\github\Repos\web-api\NewApi.Data\obj\Debug\NewApi.Data.pdb
