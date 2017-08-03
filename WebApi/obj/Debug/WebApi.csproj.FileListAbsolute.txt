@@ -78,3 +78,11 @@ D:\github\Repos\web-api\WebApi\bin\NewApi.Data.pdb
 D:\github\Repos\web-api\WebApi\bin\NewApi.Data.dll.config
 D:\github\Repos\web-api\WebApi\bin\EntityFramework.xml
 D:\github\Repos\web-api\WebApi\bin\EntityFramework.SqlServer.xml
+D:\github\Repos\web-api\WebApi\bin\Ninject.dll
+D:\github\Repos\web-api\WebApi\bin\Ninject.Web.Common.dll
+D:\github\Repos\web-api\WebApi\bin\Ninject.Web.Mvc.dll
+D:\github\Repos\web-api\WebApi\bin\WebActivatorEx.dll
+D:\github\Repos\web-api\WebApi\bin\WebApiContrib.IoC.Ninject.dll
+D:\github\Repos\web-api\WebApi\bin\Ninject.xml
+D:\github\Repos\web-api\WebApi\bin\Ninject.Web.Common.xml
+D:\github\Repos\web-api\WebApi\bin\Ninject.Web.Mvc.xml

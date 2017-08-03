@@ -11,18 +11,21 @@ namespace WebApi.Controllers
 {
     public class FoodsController : ApiController
     {
+        CountingKsRepository reposotiry;
+        public FoodsController(CountingKsRepository reposotiry)
+        {
+            this.reposotiry = reposotiry;
+        }
         public IEnumerable<Food> Get()
         {
-
             try
             {
-                using (CountingKsRepository reposotiry = new CountingKsRepository(new NewApi.Data.CountingKsEntities()))
-                {
-                    return reposotiry.GetAllFoods()
-                        .OrderBy(c=>c.Id)
-                        .Take(25)
-                        .ToList();
-                }
+
+                return reposotiry.GetAllFoods()
+                    .OrderBy(c => c.Id)
+                    .Take(25)
+                    .ToList();
+
             }
             catch
             {
