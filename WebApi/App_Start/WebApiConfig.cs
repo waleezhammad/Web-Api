@@ -29,12 +29,16 @@ namespace WebApi
                 routeTemplate: "api/nutrintions/Foods/{foodId}/Measues/{id}",
                 defaults: new { controller = "Measures", id = RouteParameter.Optional }
             );
-
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "DiaryRounting",
+                routeTemplate: "api/user/Diaries/{DiaryId}",
+                defaults: new { controller = "Diary", DiaryId = RouteParameter.Optional }
             );
+            config.Routes.MapHttpRoute(
+                            name: "DiaryEntryRounting",
+                            routeTemplate: "api/user/Diaries/{DiaryId}/DiaryEntry/{id}",
+                            defaults: new { controller = "DiaryEntry", id = RouteParameter.Optional }
+                        );
 
             #region Force Api reurn Json
 

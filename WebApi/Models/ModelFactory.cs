@@ -27,6 +27,16 @@ namespace WebApi.Models
             };
         }
 
+        public DiaryModel Create(Diary d)
+        {
+            return new DiaryModel()
+            {
+                DiaryDate =  d.CurrentDate,
+                Url = urlHelper.Link("DiaryRounting",new { DiaryId = d.CurrentDate.ToString("yyyy-MM-dd")}),
+                DiaryEntries = d.DiaryEntries.Select(de=>Create(de))
+            };
+        }
+
         public MeasureModel Create(Measure m)
         {
             return new MeasureModel()
@@ -34,6 +44,18 @@ namespace WebApi.Models
                 Url = urlHelper.Link("FoodMeasureRounting", new { foodid=m.Food_Id,id = m.Id }),
                 Description = m.Description,
                 Calories = m.Calories
+            };
+        }
+
+        public DiaryEntryModel Create(DiaryEntry diary)
+        {
+            return new DiaryEntryModel()
+            {
+                Url = urlHelper.Link("DiaryEntryRounting", new { DiaryId = diary.Diary.CurrentDate.ToString("yyyy-MM-dd"), id = diary.Id }),
+                Quantity = diary.Quantity,
+                FoodDescription = diary.Food.Description,
+                MeasureDescription = diary.Measure.Description,
+                MeasureUrl = urlHelper.Link("FoodMeasureRounting", new { foodId = diary.FoodItem_Id, id = diary.Measure_Id}),
             };
         }
     }

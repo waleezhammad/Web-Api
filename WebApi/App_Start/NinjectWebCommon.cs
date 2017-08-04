@@ -14,7 +14,7 @@ namespace WebApi.App_Start
     using NewApi.Data;
     using System.Web.Http;
     using WebApiContrib.IoC.Ninject;
-
+    
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -71,6 +71,8 @@ namespace WebApi.App_Start
         {
             kernel.Bind<ICountingKsRepository>().To<CountingKsRepository>();
             kernel.Bind<CountingKsEntities>().To<CountingKsEntities>();
+            kernel.Bind<WebApi.Services.IIdentityService>().To<WebApi.Services.IdentityService>();
+
 
         }
     }

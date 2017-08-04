@@ -54,8 +54,10 @@ namespace CountingKs.Data
 
     public IQueryable<Diary> GetDiaries(string userName)
     {
-      return _ctx.Diaries.Include("Entries.FoodItem")
-                         .Include("Entries.Measure")
+      return _ctx.Diaries.Include("DiaryEntries")
+                .Include("DiaryEntries.Measure")
+                         //.Include("")
+                         .Include("DiaryEntries.Food")
                          .OrderByDescending(d => d.CurrentDate)
                          .Where(d => d.UserName == userName);
     }
@@ -67,7 +69,7 @@ namespace CountingKs.Data
 
     public IQueryable<DiaryEntry> GetDiaryEntries(string userName, DateTime diaryDay)
     {
-      return _ctx.DiaryEntries.Include("FoodItem")
+      return _ctx.DiaryEntries.Include("Food")
                               .Include("Measure")
                               .Include("Diary")
                               .Where(f => f.Diary.UserName == userName && 
@@ -76,7 +78,7 @@ namespace CountingKs.Data
 
     public DiaryEntry GetDiaryEntry(string userName, DateTime diaryDay, int id)
     {
-      return _ctx.DiaryEntries.Include("FoodItem")
+      return _ctx.DiaryEntries.Include("Food")
                               .Include("Measure")
                               .Include("Diary")
                               .Where(f => f.Diary.UserName == userName &&
