@@ -22,6 +22,12 @@ namespace WebApi
             );
 
             config.Routes.MapHttpRoute(
+                name: "FoodMeasureRounting",
+                routeTemplate: "api/nutrintions/Foods/{foodId}/Measues/{id}",
+                defaults: new { controller = "Measures", id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

@@ -12,9 +12,9 @@ namespace WebApi.Controllers
 {
     public class FoodsController : ApiController
     {
-        CountingKsRepository reposotiry;
+        ICountingKsRepository reposotiry;
         ModelFactory modelFactory;
-        public FoodsController(CountingKsRepository reposotiry)
+        public FoodsController(ICountingKsRepository reposotiry)
         {
             this.reposotiry = reposotiry;
             modelFactory = new ModelFactory();

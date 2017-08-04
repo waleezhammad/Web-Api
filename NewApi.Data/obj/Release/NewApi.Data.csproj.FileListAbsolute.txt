@@ -1,0 +1,10 @@
+D:\github\Repos\web-api\NewApi.Data\bin\Release\NewApi.Data.dll.config
+D:\github\Repos\web-api\NewApi.Data\bin\Release\NewApi.Data.dll
+D:\github\Repos\web-api\NewApi.Data\bin\Release\NewApi.Data.pdb
+D:\github\Repos\web-api\NewApi.Data\bin\Release\EntityFramework.dll
+D:\github\Repos\web-api\NewApi.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\github\Repos\web-api\NewApi.Data\bin\Release\EntityFramework.xml
+D:\github\Repos\web-api\NewApi.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\github\Repos\web-api\NewApi.Data\obj\Release\NewApi.Data.csprojResolveAssemblyReference.cache
+D:\github\Repos\web-api\NewApi.Data\obj\Release\NewApi.Data.dll
+D:\github\Repos\web-api\NewApi.Data\obj\Release\NewApi.Data.pdb

@@ -18,7 +18,7 @@ namespace WebApi.Models
             };
         }
 
-        private MeasureModel Create(Measure m)
+        public MeasureModel Create(Measure m)
         {
             return new MeasureModel()
             {
