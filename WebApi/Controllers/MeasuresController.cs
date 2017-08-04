@@ -10,25 +10,23 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
-    public class MeasuresController : ApiController
+    public class MeasuresController : BaseController
     {
-        ICountingKsRepository reposotiry;
-        ModelFactory modelFactory;
-        public MeasuresController(ICountingKsRepository reposotiry)
+        
+        public MeasuresController(ICountingKsRepository reposotiry):base(reposotiry)
         {
-            this.reposotiry = reposotiry;
-            modelFactory = new ModelFactory();
+           
         }
         public IEnumerable<MeasureModel> Get(int foodid)
         {
-            return reposotiry.GetMeasuresForFood(foodid).ToList().Select(f=>modelFactory.Create(f));
+            return reposotiry.GetMeasuresForFood(foodid).ToList().Select(f=>ModelFactory.Create(f));
         }
 
         public MeasureModel Get(int foodid, int id)
         {
             Measure measure = reposotiry.GetMeasure(id);
             if (measure.Food_Id == foodid)
-                return modelFactory.Create(measure);
+                return ModelFactory.Create(measure);
             else
                 return null;
         }

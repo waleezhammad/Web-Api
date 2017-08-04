@@ -10,15 +10,14 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
-    public class FoodsController : ApiController
+    public class FoodsController : BaseController
     {
-        ICountingKsRepository reposotiry;
-        ModelFactory modelFactory;
-        public FoodsController(ICountingKsRepository reposotiry)
+
+        public FoodsController(ICountingKsRepository repository) : base(repository)
         {
-            this.reposotiry = reposotiry;
-            modelFactory = new ModelFactory();
+
         }
+
         public IEnumerable<FoodModel> Get()
         {
             try
@@ -27,11 +26,10 @@ namespace WebApi.Controllers
                 return reposotiry.GetAllFoodsWithMeasures()
                     .OrderBy(c => c.Id)
                     .Take(25).ToList()
-                    .Select(f => modelFactory.Create(f))
-                    ;
+                    .Select(f => ModelFactory.Create(f));
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
             }
@@ -39,7 +37,7 @@ namespace WebApi.Controllers
 
         public FoodModel Get(int id)
         {
-            return modelFactory.Create(reposotiry.GetFood(id));
+            return ModelFactory.Create(reposotiry.GetFood(id));
         }
     }
 }

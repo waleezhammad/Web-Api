@@ -10,5 +10,6 @@ namespace WebApi.Models
         public string Description { get; set; }
         public int Id { get; set; }
         public List<MeasureModel> Measure { get; set; }
+        public string Url { get; set; }
     }
 }
