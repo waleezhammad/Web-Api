@@ -58,6 +58,7 @@ namespace WebApi
             #if !DEBUG
             config.Filters.Add(new ForceHttpsAttribute());
             #endif
+            
         }
     }
     public class JsonContentNegotiator : IContentNegotiator
