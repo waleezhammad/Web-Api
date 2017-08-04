@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using WebApi.WebApiFilters;
 
 namespace WebApi
 {
@@ -21,7 +22,7 @@ namespace WebApi
             config.Routes.MapHttpRoute(
                 name: "FoodRounting",
                 routeTemplate: "api/nutrintions/Foods/{id}",
-                defaults: new { controller = "Foods",id = RouteParameter.Optional }
+                defaults: new { controller = "Foods", id = RouteParameter.Optional }
             );
 
             config.Routes.MapHttpRoute(
@@ -53,6 +54,10 @@ namespace WebApi
             //User Camel Case instead of Pascal case
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             //config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
+
+            #if !DEBUG
+            config.Filters.Add(new ForceHttpsAttribute());
+            #endif
         }
     }
     public class JsonContentNegotiator : IContentNegotiator
