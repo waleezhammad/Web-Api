@@ -26,7 +26,7 @@ namespace WebApi.Controllers
             get
             {
                 if (modelFactory == null)
-                    modelFactory = new ModelFactory(this.Request);
+                    modelFactory = new ModelFactory(this.Request, reposotiry);
                 return modelFactory;
             }
         }

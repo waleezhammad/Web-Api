@@ -1,4 +1,5 @@
-﻿using NewApi.Data;
+﻿using CountingKs.Data;
+using NewApi.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace WebApi.Models
     public class ModelFactory
     {
         UrlHelper urlHelper;
-        public ModelFactory(HttpRequestMessage request)
+        ICountingKsRepository _repository;
+        public ModelFactory(HttpRequestMessage request,ICountingKsRepository repository)
         {
             urlHelper = new UrlHelper(request);
+            this._repository = repository;
         }
         public FoodModel Create(Food food)
         {
@@ -57,6 +60,22 @@ namespace WebApi.Models
                 MeasureDescription = diary.Measure.Description,
                 MeasureUrl = urlHelper.Link("FoodMeasureRounting", new { foodId = diary.FoodItem_Id, id = diary.Measure_Id}),
             };
+        }
+
+        internal DiaryEntry Parse(DiaryEntryModel model)
+        {
+            DiaryEntry entity = new DiaryEntry();
+
+            entity.Quantity = model.Quantity;
+            if (!string.IsNullOrWhiteSpace(model.MeasureUrl))
+            {
+                var uri = new Uri(model.MeasureUrl);
+                int measureID = int.Parse(uri.Segments.Last());
+                var measure = _repository.GetMeasure(measureID);
+                entity.Measure = measure;
+                entity.Food = measure.Food;
+            }
+            return entity;
         }
     }
 }
