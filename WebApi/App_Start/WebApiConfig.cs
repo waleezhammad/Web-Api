@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using WebApi.Services;
 using WebApi.WebApiFilters;
 
 namespace WebApi
@@ -41,11 +43,15 @@ namespace WebApi
                             defaults: new { controller = "DiaryEntry", id = RouteParameter.Optional }
                         );
 
-            config.Routes.MapHttpRoute(
-                name: "FoodMeasureRountingV2",
-                routeTemplate: "api/v2/nutrintions/Foods/{foodId}/Measues/{id}",
-                defaults: new { controller = "MeasuresV2", id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "FoodMeasureRountingV2",
+            //    routeTemplate: "api/v2/nutrintions/Foods/{foodId}/Measues/{id}",
+            //    defaults: new { controller = "MeasuresV2", id = RouteParameter.Optional }
+            //);
+
+            #region Add new Controller Selector
+            config.Services.Replace(typeof(IHttpControllerSelector), new CountingKsControllerSeletor(config));
+            #endregion
 
             #region Force Api reurn Json
 

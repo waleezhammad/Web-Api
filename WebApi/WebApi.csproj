@@ -223,6 +223,7 @@
     <Compile Include="Models\MeasureModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CountingKsControllerSeletor.cs" />
     <Compile Include="Services\IdetityService.cs" />
     <Compile Include="Services\IIdetityService.cs" />
     <Compile Include="WebApiFilters\ForceHttpsAttribute.cs" />
