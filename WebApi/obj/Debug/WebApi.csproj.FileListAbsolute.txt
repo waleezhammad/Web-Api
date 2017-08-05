@@ -86,3 +86,6 @@ D:\github\Repos\web-api\WebApi\bin\WebApiContrib.IoC.Ninject.dll
 D:\github\Repos\web-api\WebApi\bin\Ninject.xml
 D:\github\Repos\web-api\WebApi\bin\Ninject.Web.Common.xml
 D:\github\Repos\web-api\WebApi\bin\Ninject.Web.Mvc.xml
+D:\github\Repos\web-api\WebApi\bin\System.Web.Cors.dll
+D:\github\Repos\web-api\WebApi\bin\System.Web.Http.Cors.dll
+D:\github\Repos\web-api\WebApi\bin\System.Web.Http.Cors.xml

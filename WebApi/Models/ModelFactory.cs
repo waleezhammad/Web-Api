@@ -30,6 +30,20 @@ namespace WebApi.Models
             };
         }
 
+        internal MeasureModelV2 CreateV2(Measure m)
+        {
+            return new MeasureModelV2()
+            {
+                Url = urlHelper.Link("FoodMeasureRounting", new { foodid = m.Food_Id, id = m.Id }),
+                Description = m.Description,
+                Calories = m.Calories,
+                Carbohydartes = m.Carbohydrates,
+                Protein = m.Protein,
+                SaturatedFat = m.SaturatedFat,
+                TotalFat = m.TotalFat
+            };
+        }
+
         public DiaryModel Create(Diary d)
         {
             return new DiaryModel()

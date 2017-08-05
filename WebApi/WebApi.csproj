@@ -211,6 +211,7 @@
     <Compile Include="Controllers\DiaryEntryController.cs" />
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MeasuresV2Controller.cs" />
     <Compile Include="Controllers\MeasuresController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">

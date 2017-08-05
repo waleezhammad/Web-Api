@@ -41,6 +41,12 @@ namespace WebApi
                             defaults: new { controller = "DiaryEntry", id = RouteParameter.Optional }
                         );
 
+            config.Routes.MapHttpRoute(
+                name: "FoodMeasureRountingV2",
+                routeTemplate: "api/v2/nutrintions/Foods/{foodId}/Measues/{id}",
+                defaults: new { controller = "MeasuresV2", id = RouteParameter.Optional }
+            );
+
             #region Force Api reurn Json
 
             /*
